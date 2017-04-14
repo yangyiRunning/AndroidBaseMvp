@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Wanmendx_android_mvp</string>
+    <string name="img_description">虚位以待</string>
+    <string name="pull_refresh">下拉屏幕，即可刷新</string>
+</resources>
