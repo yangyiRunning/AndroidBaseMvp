@@ -38,6 +38,11 @@ public class ShowActivity extends BaseActivity {
 
     @Override
     protected void initActivityView() {
+
+    }
+
+    @Override
+    protected void initPresenter() {
         new ShowPresenter(showFragment,
                 WanmenRepository.getInstance());
     }

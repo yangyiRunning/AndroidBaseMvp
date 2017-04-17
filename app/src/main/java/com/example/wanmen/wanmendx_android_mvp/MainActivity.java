@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.example.wanmen.wanmendx_android_mvp.main.MainAllActivity;
 import com.example.wanmen.wanmendx_android_mvp.show.ShowActivity;
 import com.example.wanmen.wanmendx_android_mvp.view.NullDataView;
 
@@ -27,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, ShowActivity.class));
     }
 
+    @OnClick(R.id.goto_main_button)
+    void gotoMainPager() {
+        startActivity(new Intent(this, MainAllActivity.class));
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +43,11 @@ public class MainActivity extends AppCompatActivity {
         nullData.setOnRefreshDataListener(new NullDataView.OnRefreshDataListener() {
             @Override
             public void onRefreshData() {
-                Toast.makeText(getApplicationContext(), "刷了", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "可以更新了", Toast.LENGTH_SHORT).show();
                 nullData.getNullDataSwipe().setRefreshing(false);
             }
         });
 
-        nullData.setOnNullDataLayoutClickListener(new NullDataView.OnNullDataLayoutClickListener() {
-            @Override
-            public void onNullDataLayoutClickListener() {
-                Toast.makeText(getApplicationContext(), "点了", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 }

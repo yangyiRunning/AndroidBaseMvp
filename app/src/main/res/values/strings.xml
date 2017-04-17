@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Wanmendx_android_mvp</string>
     <string name="img_description">虚位以待</string>
-    <string name="pull_refresh">下拉屏幕，即可刷新</string>
+    <string name="pull_refresh">下拉屏幕，点击刷新</string>
+
+    <string name="main">首页</string>
+    <string name="download_title">下载</string>
+    <string name="search_title">搜索</string>
+    <string name="my_title">我的</string>
+    <string name="course">课程</string>
 </resources>

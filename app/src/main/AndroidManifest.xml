@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wanmen.wanmendx_android_mvp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +23,9 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".show.ShowActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".main.MainAllActivity"
             android:launchMode="singleTask" />
     </application>
 

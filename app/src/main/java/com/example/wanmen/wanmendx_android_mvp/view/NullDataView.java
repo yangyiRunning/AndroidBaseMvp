@@ -33,27 +33,19 @@ public class NullDataView extends LinearLayout {
 
     @OnClick(R.id.nullDataLayout)
     void refresh() {
-        onNullDataLayoutClickListener.onNullDataLayoutClickListener();
+        if (onRefreshDataListener != null) {
+            onRefreshDataListener.onRefreshData();
+        }
     }
 
     private OnRefreshDataListener onRefreshDataListener;
-    private OnNullDataLayoutClickListener onNullDataLayoutClickListener;
 
     public interface OnRefreshDataListener {
         void onRefreshData();
     }
 
-    public interface OnNullDataLayoutClickListener {
-        void onNullDataLayoutClickListener();
-    }
-
     public void setOnRefreshDataListener(@NonNull OnRefreshDataListener onRefreshDataListener) {
         this.onRefreshDataListener = onRefreshDataListener;
-    }
-
-    public void setOnNullDataLayoutClickListener(
-            @NonNull OnNullDataLayoutClickListener onNullDataLayoutClickListener) {
-        this.onNullDataLayoutClickListener = onNullDataLayoutClickListener;
     }
 
     private Unbinder unbinder;

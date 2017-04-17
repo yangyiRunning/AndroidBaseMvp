@@ -39,6 +39,11 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     protected abstract void initActivityView();
 
     /**
+     * 与P绑定
+     */
+    protected abstract void initPresenter();
+
+    /**
      * @param baseFragment 替换容器中的Fragment
      */
     public void replaceFragment(BaseFragment baseFragment) {
@@ -107,6 +112,7 @@ public abstract class BaseActivity extends RxAppCompatActivity {
         unbinder = ButterKnife.bind(this);
 
         initActivityView();
+        initPresenter();
     }
 
     @Override
