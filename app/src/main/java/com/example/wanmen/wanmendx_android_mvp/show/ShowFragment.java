@@ -5,24 +5,22 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.wanmen.wanmendx_android_mvp.R;
+import com.example.wanmen.wanmendx_android_mvp.base.BaseFragment;
 import com.example.wanmen.wanmendx_android_mvp.data.WanmenData;
 import com.example.wanmen.wanmendx_android_mvp.recycler.ShowAdapter;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import butterknife.OnClick;
 
-/** Created by yangyi on 2017/4/12. */
-public class ShowFragment extends RxFragment implements ShowContract.View {
+/**
+ * Created by yangyi on 2017/4/12.
+ */
+public class ShowFragment extends BaseFragment implements ShowContract.View {
 
     @BindView(R.id.arguments)
     TextView arguments;
@@ -30,11 +28,14 @@ public class ShowFragment extends RxFragment implements ShowContract.View {
     @BindView(R.id.showRecyclerView)
     RecyclerView showRecyclerView;
 
+    @OnClick(R.id.gotoOtherFragment)
+    public void gotoOtherFragmentO() {
+        addFragment(this, OtherFragment.newInstance());
+    }
+
     private static final String SHOWFRAGMENT = "ShowFragment";
 
     private String msg;
-
-    private Unbinder unbinder;
 
     private ShowContract.Presenter presenter;
 
@@ -49,35 +50,22 @@ public class ShowFragment extends RxFragment implements ShowContract.View {
     }
 
     @Override
+    public void initFragmentView() {
+        arguments.setText(msg);
+    }
+
+    @Override
+    public int getFragmentViewId() {
+        return R.layout.mvp_show;
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
             msg = (String) getArguments().getSerializable(SHOWFRAGMENT);
         }
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(
-            LayoutInflater inflater,
-            @Nullable ViewGroup container,
-            @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.mvp_show, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        initView();
-    }
-
-    //测试是否顺利接参
-    public void initView() {
-        arguments.setText(msg);
     }
 
     @Override
@@ -92,13 +80,6 @@ public class ShowFragment extends RxFragment implements ShowContract.View {
         super.onPause();
 
         presenter.unsubscribe();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-        unbinder.unbind();
     }
 
     @Override

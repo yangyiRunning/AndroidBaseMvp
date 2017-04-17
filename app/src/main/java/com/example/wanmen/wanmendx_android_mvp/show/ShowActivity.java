@@ -1,44 +1,44 @@
 package com.example.wanmen.wanmendx_android_mvp.show;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.RelativeLayout;
 
 import com.example.wanmen.wanmendx_android_mvp.R;
+import com.example.wanmen.wanmendx_android_mvp.base.BaseActivity;
+import com.example.wanmen.wanmendx_android_mvp.base.BaseFragment;
 import com.example.wanmen.wanmendx_android_mvp.data.source.WanmenRepository;
-import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by yangyi on 2017/4/12.
  */
 
-public class ShowActivity extends RxAppCompatActivity {
+public class ShowActivity extends BaseActivity {
+
+    private ShowFragment showFragment;
 
     @BindView(R.id.container_layout)
     RelativeLayout containerLayout;
 
-    private ShowPresenter showPresenter;
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.mvp_root_show);
-        ButterKnife.bind(this);
-
-        initFragment();
+    protected int getContentViewId() {
+        return R.layout.mvp_root_show;
     }
 
-    private void initFragment() {
-        ShowFragment showFragment = ShowFragment.newInstance("这是传递的参数");
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container_layout, showFragment, "ShowFragment")
-                .commit();
+    @Override
+    protected int getFragmentContainerId() {
+        return R.id.container_layout;
+    }
 
-        showPresenter = new ShowPresenter(showFragment,
+    @Override
+    protected BaseFragment getTopFragment() {
+        showFragment = ShowFragment.newInstance("这是传递的参数");
+        return showFragment;
+    }
+
+    @Override
+    protected void initActivityView() {
+        new ShowPresenter(showFragment,
                 WanmenRepository.getInstance());
     }
 

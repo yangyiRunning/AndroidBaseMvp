@@ -11,6 +11,13 @@
         android:text="你好，我是MVP的V"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/gotoOtherFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点我再启动一个Fragment"
+        android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
