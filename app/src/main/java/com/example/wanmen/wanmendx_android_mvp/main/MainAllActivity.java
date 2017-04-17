@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import com.example.wanmen.wanmendx_android_mvp.R;
 import com.example.wanmen.wanmendx_android_mvp.base.BaseActivity;
 import com.example.wanmen.wanmendx_android_mvp.base.BaseFragment;
-import com.example.wanmen.wanmendx_android_mvp.tab.TabEntity;
+import com.example.wanmen.wanmendx_android_mvp.data.tab.MainTabEntity;
 import com.example.wanmen.wanmendx_android_mvp.viewpager.MainViewPagerAdapter;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -22,10 +22,10 @@ import butterknife.BindView;
 
 public class MainAllActivity extends BaseActivity {
 
-    @BindView(R.id.tabLayout)
-    CommonTabLayout commonTabLayout;
-    @BindView(R.id.viewpager)
-    ViewPager viewPager;
+    @BindView(R.id.mainTabLayout)
+    CommonTabLayout mainTabLayout;
+    @BindView(R.id.mainViewPager)
+    ViewPager mainViewPager;
 
     @Override
     protected int getContentViewId() {
@@ -46,11 +46,11 @@ public class MainAllActivity extends BaseActivity {
     protected void initActivityView() {
         ArrayList<CustomTabEntity> tabEntities = new ArrayList<>();
 
-        tabEntities.add(new TabEntity(getString(R.string.main), R.mipmap.ic_main_selected, R.mipmap.ic_main_normal));
-        tabEntities.add(new TabEntity(getString(R.string.course), R.mipmap.ic_course_selected, R.mipmap.ic_course_normal));
-        tabEntities.add(new TabEntity(getString(R.string.search_title), R.mipmap.ic_search_selected, R.mipmap.ic_search_normal));
-        tabEntities.add(new TabEntity(getString(R.string.download_title), R.mipmap.ic_down_selected, R.mipmap.ic_down_normal));
-        tabEntities.add(new TabEntity(getString(R.string.my_title), R.mipmap.ic_my_selected, R.mipmap.ic_my_normal));
+        tabEntities.add(new MainTabEntity(getString(R.string.main), R.mipmap.ic_main_selected, R.mipmap.ic_main_normal));
+        tabEntities.add(new MainTabEntity(getString(R.string.course), R.mipmap.ic_course_selected, R.mipmap.ic_course_normal));
+        tabEntities.add(new MainTabEntity(getString(R.string.search_title), R.mipmap.ic_search_selected, R.mipmap.ic_search_normal));
+        tabEntities.add(new MainTabEntity(getString(R.string.download_title), R.mipmap.ic_down_selected, R.mipmap.ic_down_normal));
+        tabEntities.add(new MainTabEntity(getString(R.string.my_title), R.mipmap.ic_my_selected, R.mipmap.ic_my_normal));
 
         List<BaseFragment> fragmentList = new ArrayList<>();
         fragmentList.add(MainFragment.newInstance());
@@ -59,14 +59,14 @@ public class MainAllActivity extends BaseActivity {
         fragmentList.add(DownFragment.newInstance());
         fragmentList.add(MyFragment.newInstance());
 
-        viewPager.setAdapter(new MainViewPagerAdapter(getSupportFragmentManager(),fragmentList));
-        viewPager.setOffscreenPageLimit(fragmentList.size());
+        mainViewPager.setAdapter(new MainViewPagerAdapter(getSupportFragmentManager(), fragmentList));
+        mainViewPager.setOffscreenPageLimit(fragmentList.size());
 
-        commonTabLayout.setTabData(tabEntities);
-        commonTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
+        mainTabLayout.setTabData(tabEntities);
+        mainTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
-                viewPager.setCurrentItem(position);
+                mainViewPager.setCurrentItem(position);
             }
 
             @Override
@@ -75,7 +75,7 @@ public class MainAllActivity extends BaseActivity {
             }
         });
 
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mainViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -83,7 +83,7 @@ public class MainAllActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                commonTabLayout.setCurrentTab(position);
+                mainTabLayout.setCurrentTab(position);
             }
 
             @Override
@@ -92,8 +92,8 @@ public class MainAllActivity extends BaseActivity {
             }
         });
 
-        viewPager.setCurrentItem(0);
-        commonTabLayout.showDot(4);
+        mainViewPager.setCurrentItem(0);
+        mainTabLayout.showDot(4);
     }
 
     @Override

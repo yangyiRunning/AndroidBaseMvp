@@ -1,13 +1,13 @@
-package com.example.wanmen.wanmendx_android_mvp.tab;
+package com.example.wanmen.wanmendx_android_mvp.data.tab;
 
 import com.flyco.tablayout.listener.CustomTabEntity;
 
-public class TabEntity implements CustomTabEntity {
+public class MainTabEntity implements CustomTabEntity {
     public String title;
     public int selectedIcon;
     public int unSelectedIcon;
 
-    public TabEntity(String title, int selectedIcon, int unSelectedIcon) {
+    public MainTabEntity(String title, int selectedIcon, int unSelectedIcon) {
         this.title = title;
         this.selectedIcon = selectedIcon;
         this.unSelectedIcon = unSelectedIcon;

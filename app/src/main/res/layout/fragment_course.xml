@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/courseCommonTabLayout"
+        style="@style/main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        tl:tl_iconVisible="false"
+        tl:tl_indicator_height="3dp"
+        tl:tl_indicator_width="30dp"
+        tl:tl_tab_padding="10dp"
+        tl:tl_textsize="15dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/courseViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
