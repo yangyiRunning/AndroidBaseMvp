@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:paddingBottom="21dp"
+        android:paddingTop="21dp"
         tl:tl_iconVisible="false"
-        tl:tl_indicator_height="3dp"
-        tl:tl_indicator_width="30dp"
-        tl:tl_tab_padding="10dp"
+        tl:tl_indicator_height="2dp"
+        tl:tl_indicator_width="36dp"
         tl:tl_textsize="15dp" />
 
     <android.support.v4.view.ViewPager

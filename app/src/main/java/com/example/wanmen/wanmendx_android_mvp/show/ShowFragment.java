@@ -50,6 +50,11 @@ public class ShowFragment extends BaseFragment implements ShowContract.View {
     }
 
     @Override
+    public void initFragmentData() {
+
+    }
+
+    @Override
     public void initFragmentView() {
         arguments.setText(msg);
     }

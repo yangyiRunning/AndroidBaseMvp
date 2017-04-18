@@ -21,6 +21,11 @@ public class OtherFragment extends BaseFragment {
     }
 
     @Override
+    public void initFragmentData() {
+
+    }
+
+    @Override
     public void initFragmentView() {
 
     }

@@ -27,6 +27,11 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
+     * 初始化Fragment的数据
+     */
+    public abstract void initFragmentData();
+
+    /**
      * 初始化Fragment的布局
      */
     public abstract void initFragmentView();
@@ -105,6 +110,7 @@ public abstract class BaseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        initFragmentData();
         initFragmentView();
     }
 

@@ -9,6 +9,11 @@ import com.example.wanmen.wanmendx_android_mvp.base.BaseFragment;
 
 public class SearchFragment extends BaseFragment {
     @Override
+    public void initFragmentData() {
+
+    }
+
+    @Override
     public void initFragmentView() {
 
     }

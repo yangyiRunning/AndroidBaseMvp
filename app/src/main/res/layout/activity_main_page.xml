@@ -8,9 +8,11 @@
         android:id="@+id/mainTabLayout"
         style="@style/main_bottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:paddingBottom="6dp"
+        android:paddingTop="7dp"
         tools:ignore="RtlCompat" />
 
     <android.support.v4.view.ViewPager

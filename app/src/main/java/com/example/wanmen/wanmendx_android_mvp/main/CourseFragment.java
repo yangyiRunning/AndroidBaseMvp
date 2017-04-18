@@ -32,6 +32,11 @@ public class CourseFragment extends BaseFragment {
     private List<BaseFragment> baseFragmentList;
 
     @Override
+    public void initFragmentData() {
+
+    }
+
+    @Override
     public void initFragmentView() {
         baseFragmentList = new ArrayList<>();
         baseFragmentList.add(LanguageFragment.newInstance());
@@ -60,7 +65,9 @@ public class CourseFragment extends BaseFragment {
 
         courseViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(int position,
+                                       float positionOffset,
+                                       int positionOffsetPixels) {
 
             }
 

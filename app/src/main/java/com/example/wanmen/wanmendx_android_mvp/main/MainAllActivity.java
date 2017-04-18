@@ -93,7 +93,6 @@ public class MainAllActivity extends BaseActivity {
         });
 
         mainViewPager.setCurrentItem(0);
-        mainTabLayout.showDot(4);
     }
 
     @Override
