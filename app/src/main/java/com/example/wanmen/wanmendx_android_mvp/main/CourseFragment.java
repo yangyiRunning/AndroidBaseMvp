@@ -7,8 +7,8 @@ import com.example.wanmen.wanmendx_android_mvp.base.BaseFragment;
 import com.example.wanmen.wanmendx_android_mvp.course.HighSchoolFragment;
 import com.example.wanmen.wanmendx_android_mvp.course.LanguageFragment;
 import com.example.wanmen.wanmendx_android_mvp.course.UniversityFragment;
-import com.example.wanmen.wanmendx_android_mvp.data.tab.CourseTabEntity;
-import com.example.wanmen.wanmendx_android_mvp.viewpager.CourseViewPagerAdapter;
+import com.example.wanmen.wanmendx_android_mvp.data.tab.TitleTabEntity;
+import com.example.wanmen.wanmendx_android_mvp.base.BaseViewPagerAdapter;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -42,13 +42,13 @@ public class CourseFragment extends BaseFragment {
         baseFragmentList.add(LanguageFragment.newInstance());
         baseFragmentList.add(UniversityFragment.newInstance());
         baseFragmentList.add(HighSchoolFragment.newInstance());
-        courseViewPager.setAdapter(new CourseViewPagerAdapter(
+        courseViewPager.setAdapter(new BaseViewPagerAdapter(
                 getChildFragmentManager(), baseFragmentList));
 
         ArrayList<CustomTabEntity> courseTabEntityArrayList = new ArrayList<>();
-        courseTabEntityArrayList.add(new CourseTabEntity("语言"));
-        courseTabEntityArrayList.add(new CourseTabEntity("大学"));
-        courseTabEntityArrayList.add(new CourseTabEntity("高中"));
+        courseTabEntityArrayList.add(new TitleTabEntity("语言"));
+        courseTabEntityArrayList.add(new TitleTabEntity("大学"));
+        courseTabEntityArrayList.add(new TitleTabEntity("高中"));
         courseCommonTabLayout.setTabData(courseTabEntityArrayList);
 
         courseCommonTabLayout.setOnTabSelectListener(new OnTabSelectListener() {

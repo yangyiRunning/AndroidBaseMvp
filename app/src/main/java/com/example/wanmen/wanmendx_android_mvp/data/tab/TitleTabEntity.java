@@ -6,11 +6,11 @@ import com.flyco.tablayout.listener.CustomTabEntity;
  * Created by yangyi on 2017/4/17.
  */
 
-public class CourseTabEntity implements CustomTabEntity{
+public class TitleTabEntity implements CustomTabEntity{
 
     private String title;
 
-    public CourseTabEntity(String title) {
+    public TitleTabEntity(String title) {
         this.title = title;
     }
 
