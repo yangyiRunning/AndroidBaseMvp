@@ -5,7 +5,7 @@
 
     <string name="main">首页</string>
     <string name="download_title">下载</string>
-    <string name="search_title">搜索</string>
+    <string name="live_title">直播</string>
     <string name="my_title">我的</string>
     <string name="course">课程</string>
 </resources>

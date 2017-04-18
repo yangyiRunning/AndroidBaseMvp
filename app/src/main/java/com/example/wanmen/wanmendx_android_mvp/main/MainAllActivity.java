@@ -48,7 +48,7 @@ public class MainAllActivity extends BaseActivity {
 
         tabEntities.add(new MainTabEntity(getString(R.string.main), R.mipmap.ic_main_selected, R.mipmap.ic_main_normal));
         tabEntities.add(new MainTabEntity(getString(R.string.course), R.mipmap.ic_course_selected, R.mipmap.ic_course_normal));
-        tabEntities.add(new MainTabEntity(getString(R.string.search_title), R.mipmap.ic_search_selected, R.mipmap.ic_search_normal));
+        tabEntities.add(new MainTabEntity(getString(R.string.live_title), R.mipmap.live_selected, R.mipmap.live_normal));
         tabEntities.add(new MainTabEntity(getString(R.string.download_title), R.mipmap.ic_down_selected, R.mipmap.ic_down_normal));
         tabEntities.add(new MainTabEntity(getString(R.string.my_title), R.mipmap.ic_my_selected, R.mipmap.ic_my_normal));
 
