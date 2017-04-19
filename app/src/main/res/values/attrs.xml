@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="error">
+        <attr name="netErrorImgResource" format="reference" />
+        <attr name="nullDataImgResource" format="reference" />
+        <attr name="netErrorText" format="string|reference" />
+        <attr name="nullDataText" format="string|reference" />
+    </declare-styleable>
+
+</resources>

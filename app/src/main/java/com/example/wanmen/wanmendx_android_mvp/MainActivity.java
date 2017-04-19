@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.example.wanmen.wanmendx_android_mvp.main.MainAllActivity;
 import com.example.wanmen.wanmendx_android_mvp.show.ShowActivity;
-import com.example.wanmen.wanmendx_android_mvp.view.NullDataView;
+import com.example.wanmen.wanmendx_android_mvp.view.ErrorView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,8 +20,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.nullData)
-    NullDataView nullData;
+    @BindView(R.id.errorView)
+    ErrorView errorView;
 
     @OnClick(R.id.mvp_button)
     void gotoMvpActivity() {
@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        nullData.setOnRefreshDataListener(new NullDataView.OnRefreshDataListener() {
+        errorView.setOnRefreshDataListener(new ErrorView.OnRefreshDataListener() {
             @Override
             public void onRefreshData() {
                 Toast.makeText(getApplicationContext(), "可以更新了", Toast.LENGTH_SHORT).show();
-                nullData.getNullDataSwipe().setRefreshing(false);
+                errorView.getErrorSwipe().setRefreshing(false);
             }
         });
 

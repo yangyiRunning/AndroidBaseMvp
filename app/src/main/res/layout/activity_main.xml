@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:error="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,9 +34,13 @@
         android:gravity="center"
         android:text="进主页" />
 
-    <com.example.wanmen.wanmendx_android_mvp.view.NullDataView
-        android:id="@+id/nullData"
+    <com.example.wanmen.wanmendx_android_mvp.view.ErrorView
+        android:id="@+id/errorView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        error:netErrorText="@string/app_name"
+        error:nullDataImgResource="@drawable/null_data"
+        error:netErrorImgResource="@drawable/net_error"
+        error:nullDataText="噢噢噢噢"/>
 
 </android.support.v7.widget.LinearLayoutCompat>
