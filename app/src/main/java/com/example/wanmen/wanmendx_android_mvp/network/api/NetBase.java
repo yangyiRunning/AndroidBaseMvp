@@ -16,26 +16,26 @@ public class NetBase {
     private static int connectTimeout = 30000;
     private static int readTimeout = 5000;
     private static int writeTimeout = 5000;
-    private String TEST_URL = "http://api.wanmen.org/";//https://api.github.com/
-    public static NetBase NetBaseSingleTon;
+    private static NetBase netBaseSingleTon;
     private Retrofit retrofit;
 
-    public NetBase() {
+    private NetBase() {
         initRetrofit();
     }
 
     public static NetBase getNetBaseSingleTon() {
-        if (NetBaseSingleTon == null) {
+        if (netBaseSingleTon == null) {
             synchronized (NetBase.class) {
-                if (NetBaseSingleTon == null) {
-                    return new NetBase();
+                if (netBaseSingleTon == null) {
+                    netBaseSingleTon = new NetBase();
                 }
             }
         }
-        return NetBaseSingleTon;
+        return netBaseSingleTon;
     }
 
     private void initRetrofit() {
+        String TEST_URL = "http://api.wanmen.org/";
         retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
